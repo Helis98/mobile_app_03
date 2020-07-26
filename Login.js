@@ -101,7 +101,7 @@ function Login()
             }
             else
             {
-                var globalUser = {Email:res.Name,Username:res.Email};
+                var globalUser = {Email:res.Email,Username:res.Name};
                 
                 localStorage.setItem('user_data', JSON.stringify(globalUser));
 
