@@ -1,6 +1,6 @@
 //const functions = require('./functions.js');
 const mongoose = require('mongoose');
-//const { getNextSequenceValue } = require('./functions.js');
+const { getNextSequenceValue } = require('./functions.js');
 
 const userSchema = new mongoose.Schema({
     Name: {
@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
   
     Email: {
         type: String,
-        unique: true,
+      //  unique: true,
         lowercase: true,
         required: true,
         trim: true 
@@ -36,9 +36,11 @@ const userSchema = new mongoose.Schema({
         default: Date.now
     } ,
 
+    verifyToken: {
+        type: String
+    }
    /*_id: {
         type: Number ,
-        //default: getNextSequenceValue("productid")
     }*/
 
 });
