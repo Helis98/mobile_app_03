@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import styled from 'styled-components';
 
 
 const BASE_URL = 'https://fitnessgroup3.herokuapp.com/';
@@ -9,36 +9,80 @@ const BASE_URL = 'https://fitnessgroup3.herokuapp.com/';
 function SignUp()
 
 {
-
-    
-
+  
 	var SignUpName;
 
     var SignUpPassword;
 
+    var SignUpPassword2;
+
 	var SignUpEmail;
 
+
+    const mystyle = {
+		textAlign: 'center',
+    }
 
 
     const [message,setMessage] = useState('');
 
 	
+    const SignupTitle = styled.h3`
+        color:#000000;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size:24px;
+        font-family: Arial;
+        font-weight: 1500;
+        margin: 50px 0 0;		
+    `;
+ 
+    const SignupInput = styled.input`
+        color: #000000;
+        background-color: transparent;
+        font-weight: 800;
+        font-family: Arial;
+        display: center;
+        flex-direction: column;
+        margin: 0 540px 5px;
+        align-items:center;
+        border-color: #0099FF;
+        border-radius: 6px;
+        width: 200px;
+        height:25px;
+        text-align: center;		
+    `;
 
-	const mystyle = {
-
-		textAlign: 'center'
-
-	}
+    const SignupButton= styled.button`
+        color: #000000;
+        background-color: transparent;
+        font-weight: 800;
+        font-family: Arial;
+        display: center;
+        flex-direction: column;
+        margin: 0 540px 5px;
+        align-items:center;
+        border-color: #0099FF;
+        border-radius: 6px;
+        width: 205px;
+        height:25px;
+        text-align: center;		
+    `;
 
 	
-
 	const doSignUp = async event =>
 
     {
 
         event.preventDefault();
 
-
+        if(SignUpPassword.value !== SignUpPassword2.value)
+        {
+            setMessage('Password must match');
+            return;
+        }
 
 		var js =  '{"Email":"'
 
@@ -58,7 +102,7 @@ function SignUp()
 
         {    
 
-            const response = await fetch( BASE_URL + '/register',
+            const response = await fetch( BASE_URL + 'register',
 
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
 
@@ -83,7 +127,7 @@ function SignUp()
 
                 setMessage('');
 
-                window.location.href = '/Verify';
+                window.location.href = '/';
 
             }
 
@@ -109,21 +153,23 @@ function SignUp()
 
 		<div id="SignUpDiv">
 
-			<form onSubmit={doSignUp} style={mystyle}>
+			<form style={mystyle} onSubmit={doSignUp}>
 
-                <span id="inner-title">Sign Up</span><br />
+                <SignupTitle id="inner-title">Sign Up</SignupTitle><br />
 
-				<input type="email" id="SignUpEmail" placeholder="Email" ref={(c) => SignUpEmail = c} /><br />
+				<SignupInput type="email" id="SignUpEmail" placeholder="Email" ref={(c) => SignUpEmail = c} /><br />
 
-                <input type="text" id="SignUpName" placeholder="Username" ref={(c) => SignUpName = c} /><br />
+                <SignupInput type="text" id="SignUpName" placeholder="Username" ref={(c) => SignUpName = c} /><br />
 
-                <input type="password" id="SignUpPassword" placeholder="Password" ref={(c) => SignUpPassword = c} /><br />
+                <SignupInput type="password" id="SignUpPassword" placeholder="Password" ref={(c) => SignUpPassword = c} /><br />
 
-                <input type="submit" id="SignUpButton" class="buttons" value="Sign Up" onClick={doSignUp} />
+                <SignupInput type="password" id="SignUpPassword" placeholder="Confirm Password" ref={(c) => SignUpPassword2 = c} /><br />
+
+                <SignupButton type="submit" id="SignUpButton" class="buttons" value="Sign Up" onClick={doSignUp}>Sign Up</SignupButton>
 
             </form>
 
-            <span id="loginResult">{message}</span>
+            <p style={mystyle} id="loginResult">{message}</p>
 
         </div>
 

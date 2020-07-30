@@ -11,7 +11,6 @@ var cooljazz = {
 		backgroundPosition: 'center',
 		backgroundSize: 'cover',
 		backgroundRepeat: 'no-repeat',
-		backgroundColor: '#f9ec5f',
 		height: '100vh'
 		
 		

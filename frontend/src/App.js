@@ -7,6 +7,9 @@ import SignUpPage from './pages/SignUpPage';
 import HomePage from './pages/HomePage';
 import GoalsPage from './pages/GoalsPage';
 import LogsPage from './pages/LogsPage';
+import ConfirmationPage from './pages/ConfirmationPage';
+import SendPasswordResetPage from './pages/SendPasswordResetPage';
+import PasswordResetPage from './pages/PasswordResetPage';
 
 function App() {
   return (
@@ -23,9 +26,20 @@ function App() {
         </Route>
 		<Route path="/Goal" exact>
           <GoalsPage />
+        
         </Route>
-		<Route path="/Log" exact>
+    <Route path="/Logs" exact>
           <LogsPage />
+        
+        </Route>
+    <Route path="/confirmation" exact>
+          <ConfirmationPage />
+        </Route>
+    <Route path="/sendpassreset" exact>
+          <SendPasswordResetPage />
+        </Route>
+    <Route path="/ResetPass" exact>
+          <PasswordResetPage />
         </Route>
         <Redirect to="/" />
       </Switch>  

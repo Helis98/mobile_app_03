@@ -33,7 +33,7 @@ function CreateGoalModal()
 
         try
         {    
-            const response = await fetch( BASE_URL + '/Goals',
+            const response = await fetch( BASE_URL + 'Goals',
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
 
             var res = JSON.parse(await response.text());

@@ -1,24 +1,26 @@
 import React from 'react';
+import styled from 'styled-components';
 
 function NavBar2()
 {
-    const mystyle = {
-		margin: 0,
-		marginBottom: 100,
-		marginTop: 10,
-		marginLeft: 10
-	}
+    const Cont = styled.div`
+        display: flex;   
+        margin: 0px 40px 0;
+    `;
 	
 	const buttonstyle = {
 		
-		backgroundColor: '#4caf50',
+		backgroundColor: '#000000',
 		border: 0,
 		color: '#ffffff',
-		padding: '15px 32px',
-		fontSize: '16px'
-		
-	}
-	
+        width: '150px',
+        height: '50px',
+		fontSize: '14px',
+        fontFamily: 'Arial',
+        fontWeight: '900'
+    
+    }
+
 	const gotoLogIn = async event =>
     {
         event.preventDefault();
@@ -44,9 +46,9 @@ function NavBar2()
 	return (
         
 		<div id="Nav2">
-            <form style={mystyle}>
+            <Cont>
 				<input style={buttonstyle} type="submit" id="SignUpButton" class="buttons" value="Log In" onClick={gotoLogIn} />
-            </form>
+            </Cont>
         </div>
     );
 };

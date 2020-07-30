@@ -2,15 +2,15 @@ import React from 'react';
 
 import PageTitle from '../components/PageTitle';
 import LogOut from '../components/Logout';
+import LogHistory from '../components/LogHistory';
 import LogCaloriesModal from '../components/LogCaloriesModal';
-import Background from '../images/fitness.jpg';
+import Background from '../images/runner.jpeg';
 
 var cooljazz = {
 		backgroundImage: "url(" + Background + ")",
 		backgroundPosition: 'center',
 		backgroundSize: 'cover',
 		backgroundRepeat: 'no-repeat',
-		backgroundColor: '#f9ec5f',
 		height: '100vh'
 		
 		
@@ -22,7 +22,7 @@ const LogsPage = () =>
         <div style={cooljazz}>
             <PageTitle />
 			<LogOut />
-			<LogCaloriesModal />
+			<LogHistory />
         </div>
     );
 };

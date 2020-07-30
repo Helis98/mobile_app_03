@@ -1,22 +1,30 @@
 import React from 'react';
+import styled from 'styled-components';
 
 function NavBar()
 {
-    const mystyle = {
-		margin: 0,
-		marginBottom: 100,
-		marginTop: 10,
-		marginLeft: 10
-	}
+    // const mystyle = {
+	// 	margin: 0,
+	// 	marginBottom:-50,
+	// 	marginTop: 5,
+	// 	marginLeft: 10
+    // }
+    
+    const Cont = styled.div`
+        display: flex;   
+        margin: 0px 40px 0;
+    `;
 	
 	const buttonstyle = {
 		
-		backgroundColor: '#4caf50',
+		backgroundColor: '#000000',
 		border: 0,
 		color: '#ffffff',
-		padding: '15px 32px',
-		fontSize: '16px'
-		
+        width: '150px',
+        height: '50px',
+		fontSize: '14px',
+        fontFamily: 'Arial',
+        fontWeight: '900'
 	}
 	
 	const gotoSignUp = async event =>
@@ -44,14 +52,14 @@ function NavBar()
 	return (
         
 		<div id="Nav">
-            <form style={mystyle}>
+            <Cont>
                 
 				<input style={buttonstyle} type="submit" id="SignUpButton" class="buttons" value="Sign Up" onClick={gotoSignUp} />
-            </form>
+            </Cont>
         </div>
     );
 };
 
-
+// style={mystyle}
 
 export default NavBar;

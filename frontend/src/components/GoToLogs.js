@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 function GoToLogs()
 {
@@ -7,7 +8,23 @@ function GoToLogs()
 		margin: 0,
 		marginBottom: 25,
 		
-	}
+    }
+    
+    const LoginButton= styled.button`
+	color: #000000;
+	background-color: #ffffff;
+	font-weight: 800;
+	font-family: Arial;
+	display: center;
+	flex-direction: column;
+	
+	align-items:center;
+	border-color: #0099FF;
+	border-radius: 6px;
+	width: 205px;
+	height:25px;
+	text-align: center;		
+    `;
 	
 	const gotoLogs = async event =>
     {
@@ -15,7 +32,7 @@ function GoToLogs()
 
         try
         {    
-                window.location.href = '/Log';
+                window.location.href = '/Logs';
         }
         catch(e)
         {
@@ -29,7 +46,7 @@ function GoToLogs()
         
 		<div id="NavLogs">
             <form style={mystyle}>
-				<input type="submit" id="gotoGoalsButton" class="buttons" value="Go To Log History" onClick={gotoLogs} />
+				<LoginButton type="submit" id="gotoGoalsButton" class="buttons" value="Go To Log History" onClick={gotoLogs} >Go To Log History</LoginButton>
             </form>
         </div>
     );
